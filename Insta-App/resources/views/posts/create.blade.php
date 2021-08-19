@@ -10,7 +10,7 @@
                     <h1>Add New Post</h1>
                 </div>
                  <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label">Caption</label>
+                                <label for="caption" class="col-md-4 col-form-label">Caption</label>
     
                                     <input id="caption" 
                                     type="text" 
