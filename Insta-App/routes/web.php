@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\FollowsController;
 use App\Http\Controllers\ProfilesController;
 
 /*
@@ -21,6 +22,8 @@ Route::get('/', function () {
 });
 
 Auth::routes();
+
+Route::post('/follow/{user}', [FollowsController::class, 'store']);
 
 Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
 Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('profile.edit');
