@@ -14,8 +14,18 @@ class Profile extends Model
     public function DefaultImage()
     {
         // functioned is called whenever the profile imaged is called 
-        $Image = ($this->image) ? $this -> image : 'profile/ziS2157wrQf4brY1X9mUIYGRKAS6IMbxg4BcOcA7.png';
-        return '/storage/'.$Image;
+        $imagePath = ($this->image) ? $this->image : 'profile/ziS2157wrQf4brY1X9mUIYGRKAS6IMbxg4BcOcA7.png';
+        return '/storage/'. $imagePath;
+    }
+
+    /**
+     * The followers that belong to the Profile
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function followers()
+    {
+        return $this->belongsToMany(User::class);
     }
     /**
      * Get the user that owns the Profile

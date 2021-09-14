@@ -57,6 +57,16 @@ class User extends Authenticatable
         });
     }
 
+    
+    /**
+     * The Following that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function Following()
+    {
+        return $this->belongsToMany(Profile::class);
+    }
     /**
      * Get the profile associated with the User
      *
@@ -76,4 +86,6 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class)->orderBy('created_at','DESC');
     }
+
+  
 }
