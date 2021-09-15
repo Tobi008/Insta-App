@@ -17,14 +17,11 @@ use App\Http\Controllers\ProfilesController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::post('/follow/{user}', [FollowsController::class, 'store']);
 
+Route::get('/',[PostsController::class, 'index']);
 Route::get('/profile/{user}', [ProfilesController::class, 'index'])->name('profile.show');
 Route::get('/profile/{user}/edit', [ProfilesController::class, 'edit'])->name('profile.edit');
 Route::patch('/profile/{user}', [ProfilesController::class, 'update'])->name('profile.update');
